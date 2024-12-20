@@ -1,0 +1,30 @@
+.layout-container {
+    display: grid;
+    grid-template-areas: 
+      "header header"
+      "sidebar main";
+    grid-template-rows: 60px 1fr;
+    grid-template-columns: 200px 1fr;
+    height: 100vh;
+  }
+  
+  .header {
+    grid-area: header;
+    background: #333;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+  }
+  
+  .sidebar {
+    grid-area: sidebar;
+    background: #f4f4f4;
+    padding: 16px;
+  }
+  
+  .main-content {
+    grid-area: main;
+    padding: 16px;
+  }
+  

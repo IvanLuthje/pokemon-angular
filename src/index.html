@@ -5,9 +5,88 @@
   <title>PokemonAngular</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="pokeball-logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-<body>
-  <app-root></app-root>
+<body class="mat-typography">
+  <app-root>
+    <header>
+      <div class="logo">
+        <div class="imagen">
+          <a routerLink="index"><img src='img/International_Pokémon_logo.svg.png'></a>
+        </div>
+      </div>
+    </header>
+    <nav>
+      <ul class="menu">
+        <li><a routerLink="index">Inicio</a></li>
+        <li><a routerLink="pokedex">Pokedex</a></li>
+        <li><a routerLink="historial">Historial</a></li>
+        <li><a routerLink="contacto">Contacto</a></li>
+        <li><a routerLink="compartir">Compartir</a></li>
+      </ul>
+      <div class="responsive" (click)="menuBar()">
+        &#9776;
+      </div>
+    </nav>
+  
+    <main>
+      <aside>
+        <h2>Favoritos</h2>
+        <div id="favorites-list"></div>
+        <button id="eliminar-todos" (click)="eliminarTodos()">Eliminar todos</button>
+      </aside>
+  
+      <div id="search-container">
+        <input class="id_nombre" id="nombre" type="text" placeholder="Ingresar el nombre de un pokemon o ID de Pokemon">
+        <button class="boton_busqueda" id="busqueda" type="button" aria-label="Buscar" (click)="buscar()"><i class="fa fa-search"></i></button>
+      </div>
+  
+      <select name="" id="filtro" (change)="filtrarSeleccion()">
+        <option value="nombre" id="opciones">Nombre</option>
+        <option value="item" id="opciones">Item</option>
+        <option value="maquinas" id="opciones">Maquinas</option>
+      </select>
+  
+      <div id="pokemon-info"></div>
+      <div id="alert-favoritos"></div>
+  
+      <section id="favorites-list-resp">
+        <h2>Favoritos</h2>
+        <div id="favorites-list"></div>
+        <button id="eliminar-todos" (click)="eliminarTodos()">Eliminar todos</button>
+      </section>
+  
+      <div id="modal" *ngIf="isModalOpen">
+        <div class="modal-pokemon">
+          <span class="cerrar" (click)="cerrar()">&times;</span>
+          <div class="info"></div>
+          <div id="alert-favoritos"></div>
+        </div>
+      </div>
+    </main>
+  
+    <footer>
+      <p>&copy; 2025 Pokémon</p>
+      <p>IVAN LUTHJE</p>
+      <p>Av. 51 N° 999 - La Plata</p>
+      <p>1133556929</p>
+      <div class="redes">
+        <a href="https://facebook.com/ivan.luthje" target="_blank" class="icono_redes">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://instagram.com/iviluthje" target="_blank" class="icono_redes">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/ivan-luthje-9379354a/" target="_blank" class="icono_redes">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://youtube.com" target="_blank" class="icono_redes">
+          <i class="fab fa-youtube"></i>
+        </a>
+      </div>
+    </footer>
+  </app-root>
 </body>
 </html>
